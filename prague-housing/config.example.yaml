@@ -1,0 +1,63 @@
+# Copy to config.yaml and edit. Environment variables work as ${VAR_NAME}.
+
+filters:
+  # rent | sale
+  deal: rent
+  property_types: [flat, house]
+  price_min_czk: 18000
+  price_max_czk: 35000
+  min_area_m2: 50
+  # First run reports every match. Later runs only score listings not seen before.
+  first_run: report_all
+  max_pages_per_source: 5
+
+destinations:
+  - id: andel
+    name: Anděl
+    lat: 50.0714
+    lon: 14.4036
+    arrive_by: "09:00"
+    max_duration_min: 40
+  - id: namesti-miru
+    name: Náměstí Míru
+    lat: 50.0753
+    lon: 14.4376
+    arrive_by: "19:00"
+    max_duration_min: 35
+
+sources:
+  sreality:
+    enabled: true
+    pause_s: 0.8
+  # Drop extra listings (Bezrealitky, Ulovdomov, exported CSVs, …) as JSON.
+  file:
+    enabled: false
+    path: extra-listings.json
+
+transit:
+  # Door-to-door duration. Set at least one of these for commute times.
+  google_api_key: ${GOOGLE_MAPS_API_KEY}
+  otp_base_url: ${OTP_BASE_URL}
+  # Line frequency from PID departure boards (free key at https://api.golemio.cz/api-keys).
+  golemio_api_key: ${GOLEMIO_API_KEY}
+  pid_stops_url: https://data.pid.cz/stops/json/stops.json
+  pid_stops_cache: data/pid_stops.json
+  walk_radius_m: 700
+  nearby_stop_limit: 4
+  departure_limit: 24
+  request_pause_s: 0.25
+
+storage:
+  sqlite_path: data/listings.db
+
+notify:
+  # Optional. Leave empty to print a Markdown report only.
+  telegram_bot_token: ${TELEGRAM_BOT_TOKEN}
+  telegram_chat_id: ${TELEGRAM_CHAT_ID}
+
+schedule:
+  interval_minutes: 60
+
+http:
+  user_agent: prague-housing/0.1 (+personal apartment search)
+  timeout_s: 30

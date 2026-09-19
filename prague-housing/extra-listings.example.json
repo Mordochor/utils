@@ -1,0 +1,28 @@
+[
+  {
+    "source": "bezrealitky",
+    "source_id": "demo-vinohrady",
+    "title": "Pronájem bytu 2+kk 55 m²",
+    "url": "https://www.bezrealitky.cz/nemovitosti-byty-domy/demo-vinohrady",
+    "price_czk": 24500,
+    "area_m2": 55,
+    "property_type": "flat",
+    "deal": "rent",
+    "locality": "Praha 2 - Vinohrady",
+    "lat": 50.0755,
+    "lon": 14.4378
+  },
+  {
+    "source": "ulovdomov",
+    "source_id": "demo-smichov-house",
+    "title": "Pronájem domu 120 m²",
+    "url": "https://www.ulovdomov.cz/demo-smichov-house",
+    "price_czk": 32000,
+    "area_m2": 120,
+    "property_type": "house",
+    "deal": "rent",
+    "locality": "Praha 5 - Smíchov",
+    "lat": 50.0710,
+    "lon": 14.4010
+  }
+]
