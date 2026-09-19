@@ -1,0 +1,4 @@
+# Install with: crontab -e
+# Adjust the path. Hourly is enough for sales; rentals in Prague may want */30.
+
+12 * * * * cd /home/you/utils/prague-housing && .venv/bin/prague-housing run --config config.yaml --report-dir reports >> data/cron.log 2>&1
